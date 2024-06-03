@@ -54,6 +54,15 @@ public class Lista {
         }
     }
 
+    public void eliminarPersona(String id) throws Exception {
+        Persona persona = buscarPersona(id);
+        if (persona != null) {
+            personas.remove(persona);
+        } else {
+            throw new Exception("La persona con el ID " + id + " no está en la lista.");
+        }
+    }
+
 
 
 

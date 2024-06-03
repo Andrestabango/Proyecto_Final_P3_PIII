@@ -11,6 +11,8 @@ public class Ventana {
     private JComboBox<String> comboBox2tipoAutomovil;
     private JButton agregarUsuarioButton;
     private JButton editarUsuarioButton;
+    private JButton buscarButton;
+    private JButton eliminarUsuarioButton;
 
     private Lista personas = new Lista();
 
@@ -83,11 +85,52 @@ public class Ventana {
                                 "\nPlaca: " + textField1placa.getText() +
                                 "\nTipo de vehículo: " + comboBox2tipoAutomovil.getSelectedItem().toString()
                         );
+
+                        // Habilitar los campos para agregar otro usuario
+                        textField1nombreUsuario.setEnabled(true);
+                        textField1idBanner.setEnabled(true);
+                        comboBox1tipoPersona.setEnabled(true);
+                        textField1placa.setEnabled(true);
+                        comboBox2tipoAutomovil.setEnabled(true);
+
+                        // Limpia los campos después de editar al usuario
+                        limpiarDatos();
                     }
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error al modificar el usuario: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 System.out.println(personas.listarPersonas());
+            }
+        });
+        buscarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String idBuscar = textField1idBanner.getText();
+                Persona persona = personas.buscarPersona(idBuscar);
+                if (persona != null) {
+                    textField1nombreUsuario.setText(persona.getNombre());
+                    textField1nombreUsuario.setEnabled(false);
+                    textField1idBanner.setEnabled(false);
+                    comboBox1tipoPersona.setSelectedItem(persona.getTipoPersona());
+                    comboBox1tipoPersona.setEnabled(false);
+                    textField1placa.setText(persona.getVehiculo().getPlaca());
+                    comboBox2tipoAutomovil.setSelectedItem(persona.getVehiculo().getTipoVehiculo());
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontró ningún usuario con el ID de banner proporcionado.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        eliminarUsuarioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String idBuscar = textField1idBanner.getText();
+                try {
+                    personas.eliminarPersona(idBuscar);
+                    JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente.");
+                    limpiarDatos();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al eliminar usuario: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }

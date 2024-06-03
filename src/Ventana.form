@@ -3,7 +3,7 @@
   <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="437"/>
+      <xy x="20" y="20" width="500" height="507"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -25,7 +25,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="f4356" layout-manager="GridLayoutManager" row-count="12" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="f4356" layout-manager="GridLayoutManager" row-count="14" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -110,7 +110,7 @@
                     </constraints>
                     <properties>
                       <model>
-                        <item value="Automovil "/>
+                        <item value="Automovil"/>
                         <item value="Automovil Electrico"/>
                         <item value="Moto"/>
                         <item value="Moto Electrica"/>
@@ -127,10 +127,26 @@
                   </component>
                   <component id="e6db7" class="javax.swing.JButton" binding="editarUsuarioButton" default-binding="true">
                     <constraints>
+                      <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value=" Editar Usuario"/>
+                    </properties>
+                  </component>
+                  <component id="52438" class="javax.swing.JButton" binding="buscarButton" default-binding="true">
+                    <constraints>
                       <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value=" Editar"/>
+                      <text value="Buscar Usuario"/>
+                    </properties>
+                  </component>
+                  <component id="dae56" class="javax.swing.JButton" binding="eliminarUsuarioButton" default-binding="true">
+                    <constraints>
+                      <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Eliminar Usuario"/>
                     </properties>
                   </component>
                 </children>
